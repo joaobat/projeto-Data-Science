@@ -1,6 +1,7 @@
 USE [DS_TRAINING]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_WRK_CLIENTES]    Script Date: 11/12/2018 11:15:06 AM ******/
+/****** Object:  StoredProcedure [dbo].[SP_WRK_CLIENTES] ******/
+/****** procedure que altera a tabela original do banco  ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
