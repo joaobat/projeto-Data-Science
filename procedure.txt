@@ -1,0 +1,67 @@
+USE [DS_TRAINING]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_WRK_CLIENTES]    Script Date: 11/12/2018 11:15:06 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		JOHNN SOUZA
+-- Create date: 20181112
+-- Description:	PROCEDURE QUE CRIA A TABELA WRK_CLIENTES
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_WRK_CLIENTES] 
+
+AS
+BEGIN
+
+-- =============================================
+-- DROP TABLE DA TABELA
+-- =============================================
+IF OBJECT_ID('WRK_CLIENTES') IS NOT NULL
+DROP TABLE [dbo].[WRK_CLIENTES]
+
+-- =============================================
+-- CRIAÇÃO DA TABELA
+-- =============================================
+
+CREATE TABLE WRK_CLIENTES
+(
+	   [RouNumber]		INT IDENTITY
+	  ,[Customer ID]	VARCHAR(100)	
+      ,[City]			VARCHAR(100)
+      ,[ZipCode]		VARCHAR(10)
+      ,[Gender]			CHAR(1)
+      ,[Age]			FLOAT
+
+
+)
+
+-- =============================================
+-- TRUNCATE DA TABELA
+-- =============================================
+TRUNCATE TABLE [dbo].[WRK_CLIENTES]
+
+-- =============================================
+-- INSERÇÃO DOS DADOS
+-- =============================================
+
+INSERT INTO [dbo].[WRK_CLIENTES]
+(
+		    [Customer ID]
+           ,[City]
+           ,[ZipCode]
+           ,[Gender]
+           ,[Age]
+)
+SELECT 
+	   [Customer ID]
+      ,[City]
+      ,[ZipCode]
+      ,[Gender]
+      ,[Age]
+  FROM [DS_TRAINING].[dbo].[RAW_Clientes_20181112]
+    
+
+END
